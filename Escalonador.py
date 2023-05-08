@@ -20,7 +20,7 @@ class Escalonador:
 
         # criando um processo com thread
 
-        processo_thread = Processo(id=str(quantidade_processos-1)+'_', status='pronto', prioridade = self.processos[-1].prioridade, tempo=self.processos[-1].tempo, tempo_executando=0, tamanho=0, processo_thread=self.processos[-1])
+        processo_thread = Processo(id=str(quantidade_processos-1)+'_', status='pronto', prioridade = self.processos[-1].prioridade, tempo=self.processos[-1].tempo, tempo_executando=0, tamanho=self.processos[-1].tamanho, processo_thread=self.processos[-1])
         self.processos[-1].processo_thread = processo_thread
         self.processos.sort(key=lambda x: x.prioridade)
 
