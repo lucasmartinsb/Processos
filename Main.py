@@ -27,8 +27,8 @@ def main(stdscr):
     agendamento_thread = threading.Thread(target=escalonador.agenda_processos)
     agendamento_thread.start()
 
-    janela_tabela = curses.newwin(100,100,1,1)
-    janela_memoria = curses.newwin(110,100,1,65)
+    janela_tabela = curses.newwin(100,150,1,1)
+    janela_memoria = curses.newwin(110,100,1,80)
 
     while agendamento_thread.is_alive():
         janela_tabela.clear()
@@ -38,6 +38,7 @@ def main(stdscr):
         janela_memoria.clear()
         janela_memoria.addstr(escalonador.print_memoria())
         janela_memoria.refresh()
+
         time.sleep(1)
     stdscr.getch()
 
